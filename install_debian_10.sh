@@ -91,7 +91,7 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing java 8"
   sudo apt-get install openjdk-8-jdk
 
-  echo "Installin Android Studio"
+  echo "Installing Android Studio"
   sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
   adduser $USER libvirt
   adduser $USER libvirt
