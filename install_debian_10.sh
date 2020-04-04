@@ -108,9 +108,12 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing default JDK"
   sudo apt install -y default-jdk
 
-  # echo "Installing Android Studio"
-  # sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-
+  echo "Installing Android Studio"
+  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+  sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
+  sudo adduser $USER libvirt
+  sudo adduser $USER libvirt-qemu
+    
   echo "Done"
 else
   echo "Must run with root"
