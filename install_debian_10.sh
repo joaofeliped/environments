@@ -5,6 +5,9 @@ if [[ "$EUID" = 0 ]]; then
 
   echo "Installing CURL"
   sudo apt install curl
+
+  echo "Installing WGET"
+  sudo apt install wget
   
   if [ ! -z "$1" ] && [ $1 == "-first" ] ; then
     echo "Wich username?"
@@ -91,11 +94,11 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing java 8"
   sudo apt-get install openjdk-8-jdk
 
-  echo "Installing Android Studio"
-  sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
-  adduser $USER libvirt
-  adduser $USER libvirt
-  sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6 lib32gcc1 lib32tinfo5 libc6-i386
+  # echo "Installing Android Studio"
+  # sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
+  # adduser $USER libvirt
+  # adduser $USER libvirt
+  # sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6 lib32gcc1 lib32tinfo5 libc6-i386
 
   echo "Done"
 else
