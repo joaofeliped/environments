@@ -109,10 +109,7 @@ if [[ "$EUID" = 0 ]]; then
   sudo apt install -y default-jdk
 
   # echo "Installing Android Studio"
-  # sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
-  # adduser $USER libvirt
-  # adduser $USER libvirt
-  # sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6 lib32gcc1 lib32tinfo5 libc6-i386
+  # sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 
   echo "Done"
 else
