@@ -86,8 +86,13 @@ if [[ "$EUID" = 0 ]]; then
   sudo apt update && sudo apt install --no-install-recommends yarn
 
   echo "Installing Insomnia"
-  sudo apt install snapd
-  sudo snap install insomnia
+  echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
+    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+  wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
+    | sudo apt-key add -
+   
+  sudo apt-get update
+  sudo apt-get install insomnia
 
   echo "Installing Postbird"
   sudo snap install postbird
