@@ -96,6 +96,7 @@ if [[ "$EUID" = 0 ]]; then
 
   echo "Installing Postbird"
   sudo apt install snapd
+  systemctl start snapd.service
   sudo snap install postbird
 
   echo "Installing react-app"
