@@ -9,7 +9,7 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing WGET"
   sudo apt install wget
   
-  if [ ! -z "$1" ] && [ $1 == "-first" ] ; then
+  if [ ! -z "$1" ] && [ $1 == "--first" ] ; then
     echo "Wich username?"
     read name
 
