@@ -105,8 +105,8 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing react-native-CLI"
   npm install -g react-native-cli
 
-  echo "Installing java 8"
-  sudo apt-get install openjdk-8-jdk
+  echo "Installing default JDK"
+  sudo apt install -y default-jdk
 
   # echo "Installing Android Studio"
   # sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
