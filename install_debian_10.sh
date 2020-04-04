@@ -95,6 +95,7 @@ if [[ "$EUID" = 0 ]]; then
   sudo apt-get install insomnia
 
   echo "Installing Postbird"
+  sudo apt install snapd
   sudo snap install postbird
 
   echo "Installing react-app"
