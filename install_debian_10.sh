@@ -2,6 +2,9 @@
 
 if [[ "$EUID" = 0 ]]; then
   echo "Starting environment install on debian 10"
+  
+  sudo sed -i 's/main/main contrib non-free/' /etc/apt/sources.list
+  sudo apt update
 
   echo "Installing WGET"
   sudo apt install -y wget
@@ -18,9 +21,6 @@ if [[ "$EUID" = 0 ]]; then
     sudo apt install -y ./google-chrome-stable_current_amd64.deb
     
     echo "Installing Wifi Atheros"
-    sudo sed -i 's/main/main contrib non-free/' /etc/apt/sources.list
-    sudo apt update
-
     sudo apt install -y firmware-atheros
 
     echo "Installing Terminator"
