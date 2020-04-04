@@ -3,9 +3,6 @@
 if [[ "$EUID" = 0 ]]; then
   echo "Starting environment install on debian 10"
 
-  echo "Installing CURL"
-  sudo apt install -y curl
-
   echo "Installing WGET"
   sudo apt install -y wget
   
