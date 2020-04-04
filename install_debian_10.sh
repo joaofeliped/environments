@@ -4,10 +4,10 @@ if [[ "$EUID" = 0 ]]; then
   echo "Starting environment install on debian 10"
 
   echo "Installing CURL"
-  sudo apt install curl
+  sudo apt install -y curl
 
   echo "Installing WGET"
-  sudo apt install wget
+  sudo apt install -y wget
   
   if [ ! -z "$1" ] && [ $1 == "--first" ] ; then
     echo "Wich username?"
@@ -18,29 +18,29 @@ if [[ "$EUID" = 0 ]]; then
     echo "Installing Google Chrome"
 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install ./google-chrome-stable_current_amd64.deb
+    sudo apt install -y ./google-chrome-stable_current_amd64.deb
     
     echo "Installing Wifi Atheros"
     sudo sed -i 's/main/main contrib non-free/' /etc/apt/sources.list
     sudo apt update
 
-    sudo apt install firmware-atheros
+    sudo apt install -y firmware-atheros
 
     echo "Installing Terminator"
      
-    sudo apt install terminator
+    sudo apt install -y terminator
   fi
 
   echo "Installing Development Enviroment"
 
   echo "Installing GIT"
-  sudo apt install git
+  sudo apt install -y git
 
   echo "Installing GIT Flow"
-  sudo apt-get install git-flow
+  sudo apt-get install -y git-flow
 
   echo "Installing Docker"
-  sudo apt-get install \
+  sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -55,7 +55,7 @@ if [[ "$EUID" = 0 ]]; then
      
   sudo apt-get update
 
-  sudo apt-get install docker-ce docker-ce-cli containerd.io
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
   sudo groupadd docker
   sudo usermod -aG docker $USER
@@ -69,9 +69,9 @@ if [[ "$EUID" = 0 ]]; then
   sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft-archive-keyring.gpg
   sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
   
-  sudo apt-get install apt-transport-https
+  sudo apt-get install -y apt-transport-https
   sudo apt-get update
-  sudo apt-get install code
+  sudo apt-get install -y code
   
   echo "Installing NVM and Node"
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -83,7 +83,7 @@ if [[ "$EUID" = 0 ]]; then
   echo "Installing yarn"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt update && sudo apt install --no-install-recommends yarn
+  sudo apt update && sudo apt install -y --no-install-recommends yarn
 
   echo "Installing Insomnia"
   echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
@@ -92,10 +92,10 @@ if [[ "$EUID" = 0 ]]; then
     | sudo apt-key add -
    
   sudo apt-get update
-  sudo apt-get install insomnia
+  sudo apt-get install -y insomnia
 
   echo "Installing Postbird"
-  sudo apt install snapd
+  sudo apt install -y snapd
   systemctl start snapd.service
   sudo snap install postbird
 
@@ -109,8 +109,8 @@ if [[ "$EUID" = 0 ]]; then
   sudo apt install -y default-jdk
 
   echo "Installing Android Studio"
-  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-  sudo apt-get install qemu-kvm libvirt-clients libvirt-daemon-system
+  sudo apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+  sudo apt-get install -y qemu-kvm libvirt-clients libvirt-daemon-system
   sudo adduser $USER libvirt
   sudo adduser $USER libvirt-qemu
     
